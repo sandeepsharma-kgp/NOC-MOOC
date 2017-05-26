@@ -45,7 +45,7 @@ public class ApiManager {
 //            this.config = config;
 
         OkHttpClient client;
-        String proxy="10.3.100.207:8080";
+//        String proxy="10.3.100.207:8080";
         client = new OkHttpClient.Builder()
                 .connectTimeout(2, TimeUnit.MINUTES)
                 .readTimeout(2, TimeUnit.MINUTES)

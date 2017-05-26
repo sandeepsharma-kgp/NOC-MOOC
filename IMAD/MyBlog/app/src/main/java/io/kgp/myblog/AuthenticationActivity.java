@@ -2,6 +2,7 @@ package io.kgp.myblog;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.icu.text.DateFormat;
 import android.os.AsyncTask;
 import android.support.annotation.BoolRes;
@@ -89,7 +90,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                     public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
                         showProgressDialog(false);
                         if (response.isSuccessful()){
-                            showAlert("Welcome",response.body().getMessage());
+                            navigateToArticleListActivity();
                         } else {
                             try {
                                 String errorMessage = response.errorBody().string();
@@ -112,7 +113,8 @@ public class AuthenticationActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<MessageResponse> call, Throwable t) {
-
+                        showProgressDialog(false);
+                        showAlert("Sign In failed","Something went wrong");
                     }
                 });
     }
@@ -148,7 +150,8 @@ public class AuthenticationActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<MessageResponse> call, Throwable t) {
-
+                        showProgressDialog(false);
+                        showAlert("Registration failed","Something went wrong");
                     }
                 });
 
@@ -217,6 +220,11 @@ public class AuthenticationActivity extends AppCompatActivity {
             return username.contentEquals(mockUsername) && password.contentEquals(mockPassword);
         }
 
+    }
+
+    private void navigateToArticleListActivity(){
+        Intent intent = new Intent(this, ArticleListActivity.class);
+        startActivity(intent);
     }
 
 }
