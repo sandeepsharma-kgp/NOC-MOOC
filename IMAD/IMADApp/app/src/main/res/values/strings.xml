@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">IMADApp</string>
+    <string name="hello_world_text">Hello World! This is my first android app</string>
+</resources>

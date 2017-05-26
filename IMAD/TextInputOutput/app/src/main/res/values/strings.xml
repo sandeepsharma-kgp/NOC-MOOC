@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TextInputOutput</string>
+    <string name="hello_world_text">Hello World! This is my first android app</string>
+    <string name="button_text">Click me to replace</string>
+</resources>
